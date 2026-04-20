@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Code checkout...'
+                git branch: 'main', url: 'https://github.com/Hareeshreddyhari/mindcircuit17d.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building the code...'
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to Tomcat...'
+                deploy adapters: [tomcat9(
+                    credentialsId: 'tomcat',
+                    url: 'http://54.173.204.239:8080',
+                    path: ''
+                )],
+                contextPath: 'Harry',
+                war: '**/*.war'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Deployment successful!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
