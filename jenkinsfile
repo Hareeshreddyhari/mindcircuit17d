@@ -21,11 +21,20 @@ pipeline {
                 echo 'Deploying to Tomcat...'
                 deploy adapters: [tomcat9(
                     credentialsId: 'tomcat',
-                    url: 'http://54.173.204.239:8080',
-                    path: ''
+                    url: 'http://54.173.204.239:8080'
                 )],
                 contextPath: 'Harry',
-                war: '**/*.war'
+                war: 'target/*.war'
             }
         }
     }
+
+    post {
+        success {
+            echo 'Deployment successful!'
+        }
+        failure {
+            echo 'Deployment failed!'
+        }
+    }
+}
