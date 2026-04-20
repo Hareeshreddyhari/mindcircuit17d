@@ -2,7 +2,7 @@
 <html>
 <body style="background-color:yellow;">
 
-<h1>welcome to JENKINS PIPELINE WORLD </h1>
+<h1>hello to JENKINS PIPELINE WORLD </h1>
 
 
 </body>
