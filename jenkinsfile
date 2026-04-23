@@ -19,7 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying to Tomcat...'
-            deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'hareesh', path: '', url: 'http://23.20.227.251:8080')], contextPath: 'harry', war: '**/*.war'
+            deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'hareesh', path: '', url: 'http://23.20.227.251:8080')], contextPath: 'Deplo', war: '**/*.war'
             }
         }
     }
