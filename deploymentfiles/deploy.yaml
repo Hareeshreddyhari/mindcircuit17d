@@ -24,6 +24,6 @@ spec:
     spec:
       containers: 
       - name: facebook-container
-        image: harishreddyhari3/hareeshrepo:37
+        image: harishreddyhari3/hareeshrepo:40
         ports:
         - containerPort: 8080
